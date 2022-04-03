@@ -1,0 +1,46 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
+body {
+    font-family: "Ubuntu", sans-serif;
+    background: #c33764;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #1d2671, #c33764);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #1d2671, #c33764);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #f6f9ff;
+    padding: 10% 0;
+}
+
+#container {
+    margin: 30px auto;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.content {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin: auto;
+}
+
+.footer-link a {
+    display: inline-block;
+    text-decoration: none;
+    color: rgb(209, 201, 201);
+    margin-top: 5px;
+    padding: 5px;
+}
+
+.footer-link a:hover {
+    color: #fff;
+}
