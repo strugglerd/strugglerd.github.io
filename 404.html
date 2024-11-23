@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- favicons -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/site.webmanifest" />
+
+        <title>404 - Page Not Found</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, sans-serif;
+                background-color: #f8fafc;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #1e293b;
+            }
+
+            .container {
+                text-align: center;
+                padding: 2rem;
+                max-width: 600px;
+            }
+
+            .error-code {
+                font-size: 8rem;
+                font-weight: 700;
+                color: #0066cc;
+                margin-bottom: 1rem;
+                position: relative;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            .message {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+                color: #475569;
+            }
+
+            .description {
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 2rem;
+                color: #64748b;
+            }
+
+            .home-button {
+                display: inline-block;
+                padding: 0.8rem 2rem;
+                background-color: #0066cc;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .home-button:hover {
+                background-color: #0052a3;
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+            }
+
+            .home-button::after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300%;
+                height: 300%;
+                background: rgba(255, 255, 255, 0.1);
+                transform: translate(-50%, -50%) rotate(45deg);
+                transition: transform 0.6s ease;
+            }
+
+            .home-button:hover::after {
+                transform: translate(-50%, -50%) rotate(45deg) translateX(100%);
+            }
+
+            @media (max-width: 640px) {
+                .error-code {
+                    font-size: 6rem;
+                }
+
+                .message {
+                    font-size: 1.25rem;
+                }
+
+                .description {
+                    font-size: 1rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="error-code">404</div>
+            <h1 class="message">Page Not Found</h1>
+            <p class="description">
+                Oops! It seems like you've ventured into uncharted territory.
+                The page you're looking for might have moved or no longer
+                exists.
+            </p>
+            <a href="/" class="home-button" id="homeBtn">Return Home</a>
+        </div>
+
+        <script>
+            // Add subtle parallax effect to 404 number
+            document.addEventListener("mousemove", (e) => {
+                const errorCode = document.querySelector(".error-code");
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                errorCode.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
+            });
+
+            // Reset transform when mouse leaves the window
+            document.addEventListener("mouseleave", () => {
+                const errorCode = document.querySelector(".error-code");
+                errorCode.style.transform = "translate(0, 0)";
+            });
+        </script>
+    </body>
+</html>

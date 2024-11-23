@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- favicons -->
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./assets/apple-touch-icon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./assets/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./assets/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./assets/site.webmanifest" />
+
+        <title>Sangharsha Dahal</title>
+        <style>
+            /* Theme variables */
+            html[data-theme="light"] {
+                --bg-color: #f5f5f5;
+                --container-bg: white;
+                --text-color: #333;
+                --text-secondary: #666;
+                --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                --resume-bg: #2563eb;
+                --resume-hover: #1d4ed8;
+                --resume-text: white;
+            }
+
+            html[data-theme="dark"] {
+                --bg-color: #1a1a1a;
+                --container-bg: #2d2d2d;
+                --text-color: #ffffff;
+                --text-secondary: #cccccc;
+                --shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+                --resume-bg: #3b82f6;
+                --resume-hover: #60a5fa;
+                --resume-text: white;
+            }
+
+            /* Smooth transition for theme switch */
+            * {
+                transition: all 0.3s ease;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+            }
+
+            /* Theme Toggle Button */
+            .theme-toggle {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 10px 20px;
+                border-radius: 20px;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background-color: var(--container-bg);
+                color: var(--text-color);
+                box-shadow: var(--shadow);
+            }
+
+            .theme-toggle:hover {
+                opacity: 0.9;
+            }
+
+            .container {
+                background-color: var(--container-bg);
+                padding: 30px;
+                border-radius: 10px;
+                box-shadow: var(--shadow);
+            }
+
+            .intro {
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+            .intro h1 {
+                margin-bottom: 10px;
+                color: var(--text-color);
+            }
+
+            .intro h3 {
+                color: var(--text-secondary);
+                margin-top: 0;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .content ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+
+            .content li {
+                margin: 15px 0;
+                color: var(--text-color);
+            }
+
+            .social-links {
+                margin: 30px 0;
+                text-align: center;
+            }
+
+            .social-links h3 {
+                margin-bottom: 20px;
+                color: var(--text-color);
+            }
+
+            .social-links a {
+                margin: 0 10px;
+                display: inline-block;
+            }
+
+            .tools-section {
+                text-align: center;
+                margin: 30px 0;
+            }
+
+            .tools-section h3 {
+                margin-bottom: 20px;
+                color: var(--text-color);
+            }
+
+            .tools-grid {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .tools-grid a {
+                transition: transform 0.2s;
+                padding: 5px;
+                border-radius: 5px;
+                background-color: var(--container-bg);
+            }
+
+            .tools-grid a:hover {
+                transform: scale(1.1);
+            }
+
+            .stats {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            /* Dark mode specific styles for tool icons */
+            html[data-theme="dark"] .tools-grid a {
+                background-color: #3d3d3d;
+            }
+
+            .resume-section {
+                text-align: center;
+                margin: 30px 0;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: var(--container-bg);
+                box-shadow: var(--shadow);
+            }
+
+            .resume-button {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 24px;
+                font-size: 1.1em;
+                font-weight: bold;
+                text-decoration: none;
+                color: var(--resume-text);
+                background-color: var(--resume-bg);
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                transition: transform 0.2s, background-color 0.3s;
+            }
+
+            .resume-button:hover {
+                transform: translateY(-2px);
+                background-color: var(--resume-hover);
+            }
+
+            .resume-button svg {
+                width: 20px;
+                height: 20px;
+                fill: currentColor;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="theme-toggle" onclick="toggleTheme()">
+            <span class="theme-icon">🌞</span>
+        </button>
+
+        <div class="container">
+            <div class="intro">
+                <h1>Sangharsha Dahal</h1>
+                <h3>Software Developer & Avid Learner</h3>
+            </div>
+
+            <!-- Adding Resume Section right after intro -->
+            <div class="resume-section">
+                <a
+                    href="https://drive.google.com/file/d/14dZHqZjxWOt7yXVcYt_a-6ZaNSu2Lt8x/view?usp=sharing"
+                    class="resume-button"
+                    target="_blank"
+                >
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 13l-4-4h8l-4 4zm0-6l-4 4h8l-4-4z"
+                        />
+                    </svg>
+                    View My Resume
+                </a>
+            </div>
+
+            <div class="content">
+                <ul>
+                    <li>
+                        <b>🎓 EDUCATION :</b> <br /><br />
+                        <i>IOE, Purwanchal Campus</i>
+                        <br />
+                        <i
+                            >BE in Electronics, Communication and Information
+                            Engineering</i
+                        >
+                        <br />
+                    </li>
+                    <li>
+                        <b>MISC :</b> <br /><br />
+                        🌱 I'm currently learning
+                        <i>to teach machines think (sort of).</i>
+                    </li>
+                    <li>
+                        🔭 I'm currently working on
+                        <i
+                            >implementing Generative Adversarial Network (GAN)
+                            myself.</i
+                        >
+                    </li>
+                    <li>
+                        📫 How to reach me
+                        <i>contact@sangharshadahal.com.np</i>
+                    </li>
+                </ul>
+
+                <div class="social-links">
+                    <h3>Connect with me:</h3>
+                    <a
+                        href="https://linkedin.com/in/sangharsha-dahal"
+                        target="blank"
+                    >
+                        <img
+                            src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg"
+                            alt="sangharsha-dahal"
+                            height="30"
+                            width="40"
+                        />
+                    </a>
+                    <a href="https://fb.com/sanghaarsha" target="blank">
+                        <img
+                            src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg"
+                            alt="sanghaarsha"
+                            height="30"
+                            width="40"
+                        />
+                    </a>
+                    <a href="https://instagram.com/sanghaarsha" target="blank">
+                        <img
+                            src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg"
+                            alt="sanghaarsha"
+                            height="30"
+                            width="40"
+                        />
+                    </a>
+                </div>
+
+                <div class="tools-section">
+                    <h3>Languages and Tools:</h3>
+                    <div class="tools-grid">
+                        <a
+                            href="https://www.arduino.cc/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg"
+                                alt="arduino"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://www.cprogramming.com/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg"
+                                alt="c"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://www.w3schools.com/cpp/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg"
+                                alt="cplusplus"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://git-scm.com/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg"
+                                alt="git"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
+                                alt="javascript"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://www.linux.org/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg"
+                                alt="linux"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://www.mongodb.com/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
+                                alt="mongodb"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://nodejs.org"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
+                                alt="nodejs"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://pandas.pydata.org/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg"
+                                alt="pandas"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://postman.com"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
+                                alt="postman"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://www.python.org"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg"
+                                alt="python"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://pytorch.org/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg"
+                                alt="pytorch"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                        <a
+                            href="https://reactjs.org/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <img
+                                src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg"
+                                alt="react"
+                                width="40"
+                                height="40"
+                            />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="stats">
+                    <img
+                        src="https://github-readme-stats.vercel.app/api/top-langs?username=sanghaarsha&show_icons=true&locale=en&layout=compact"
+                        alt="sanghaarsha"
+                    />
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function toggleTheme() {
+                const html = document.documentElement;
+                const themeIcon = document.querySelector(".theme-icon");
+                const currentTheme = html.getAttribute("data-theme");
+
+                if (currentTheme === "light") {
+                    html.setAttribute("data-theme", "dark");
+                    themeIcon.textContent = "🌙";
+                } else {
+                    html.setAttribute("data-theme", "light");
+                    themeIcon.textContent = "🌞";
+                }
+            }
+        </script>
+    </body>
+</html>
