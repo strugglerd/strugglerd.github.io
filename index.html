@@ -213,6 +213,36 @@
                 height: 20px;
                 fill: currentColor;
             }
+            /* Only style links inside <li class="mail"> */
+            li.mail a {
+                text-decoration: none; /* Remove underline */
+                color: #87ceeb; /* Darker, more vibrant blue */
+                font-weight: bold; /* Make the text bold */
+                transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+            }
+
+            /* Hover effect for the link */
+            li.mail a:hover {
+                color: #b0c4de; /* Darker blue on hover */
+                transform: scale(1.05); /* Slightly enlarge on hover */
+            }
+
+            /* Focus effect for accessibility */
+            li.mail a:focus {
+                outline: 3px solid #ffbf47; /* Outline to indicate focus */
+                outline-offset: 2px; /* Offset the outline slightly */
+            }
+
+            /* Dark mode adjustments for links inside <li class="mail"> */
+            @media (prefers-color-scheme: dark) {
+                li.mail a {
+                    color: #007bff; /* Lighter blue in dark mode */
+                }
+
+                li.mail a:hover {
+                    color: #0056b3; /* Lighter blue on hover in dark mode */
+                }
+            }
         </style>
     </head>
     <body>
@@ -266,9 +296,14 @@
                             myself.</i
                         >
                     </li>
-                    <li>
-                        📫 How to reach me
-                        <i>contact@sangharshadahal.com.np</i>
+                    <li class="mail">
+                        📫Send Email:
+                        <i
+                            ><a
+                                href="mailto:contact@sangharshadahal.com.np?subject=Hello&body=I%20wanted%20to%20reach%20out%20about..."
+                                >contact@sangharshadahal.com.np</a
+                            >
+                        </i>
                     </li>
                 </ul>
 
