@@ -1,61 +1,1049 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- Simple Analytics -->
-        <script
-            async
-            src="https://scripts.simpleanalyticscdn.com/latest.js"
-        ></script>
-        <!-- Google tag (gtag.js) -->
-        <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-P2TH6VRJMP"
-        ></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sangharsha Dahal - Full-Stack & AI Engineer</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg,
+                    #667eea 0%,
+                    #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg,
+                    #f093fb 0%,
+                    #f5576c 100%);
+            --accent-gradient: linear-gradient(135deg,
+                    #4facfe 0%,
+                    #00f2fe 100%);
+            --dark-gradient: linear-gradient(135deg,
+                    #0c0c0c 0%,
+                    #1a1a2e 100%);
+        }
+
+        body {
+            font-family: "Space Grotesk", sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .font-display {
+            font-family: "Orbitron", monospace;
+        }
+
+        .font-mono {
+            font-family: "JetBrains Mono", monospace;
+        }
+
+        /* Animated Background */
+        .bg-animated {
+            background: linear-gradient(-45deg,
+                    #0a0a0a,
+                    #1a1a2e,
+                    #16213e,
+                    #0f3460);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
             }
-            gtag("js", new Date());
-            gtag("config", "G-P2TH6VRJMP");
-        </script>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f5f5f5;
-                color: #333;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                margin: 0;
-                text-align: center;
+
+            50% {
+                background-position: 100% 50%;
             }
-            .container {
-                padding: 2rem;
-                background-color: white;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                max-width: 90%;
+
+            100% {
+                background-position: 0% 50%;
             }
-            h1 {
-                margin-top: 0;
+        }
+
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(102, 126, 234, 0.4);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.4;
             }
-            .icon {
-                font-size: 4rem;
-                margin-bottom: 1rem;
+
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 0.8;
             }
-        </style>
-        <title>Site Under Construction</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="icon">🚧</div>
-            <h1>Site Under Construction</h1>
-            <p>Working on something great. Check back soon!</p>
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-dark {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Neon glow effects */
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5),
+                0 0 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .neon-text {
+            text-shadow: 0 0 10px rgba(102, 126, 234, 0.8),
+                0 0 20px rgba(102, 126, 234, 0.6),
+                0 0 30px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Hover effects */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Typing animation */
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end) forwards,
+                blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: rgba(102, 126, 234, 1);
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-in-up.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            border-radius: 10px;
+        }
+
+        /* 3D Card effects */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(10deg);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg,
+                    #667eea 0%,
+                    #764ba2 50%,
+                    #f093fb 100%);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Pulsing effect */
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseGlow {
+            from {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+
+            to {
+                box-shadow: 0 0 30px rgba(102, 126, 234, 0.8),
+                    0 0 40px rgba(102, 126, 234, 0.4);
+            }
+        }
+
+        /* Magnetic hover effect */
+        .magnetic {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+
+    <script>
+        // Tailwind config for custom colors
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "neon-blue": "#667eea",
+                        "neon-purple": "#764ba2",
+                        "neon-pink": "#f093fb",
+                        "neon-cyan": "#4facfe",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-animated antialiased">
+    <!-- Floating Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header & Navigation -->
+    <header class="glass fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 sm:px-6 py-4">
+            <nav class="flex justify-between items-center">
+                <a href="#"
+                    class="font-display text-xl sm:text-2xl font-bold gradient-text hover:scale-105 transition-transform duration-300">
+                    &lt;SDahal/&gt;
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about"
+                        class="text-gray-300 hover:text-neon-blue transition-all duration-300 relative group">
+                        About
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-blue transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#skills"
+                        class="text-gray-300 hover:text-neon-purple transition-all duration-300 relative group">
+                        Skills
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-purple transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#projects"
+                        class="text-gray-300 hover:text-neon-pink transition-all duration-300 relative group">
+                        Projects
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-pink transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#experience"
+                        class="text-gray-300 hover:text-neon-cyan transition-all duration-300 relative group">
+                        Experience
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-cyan transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact"
+                        class="glass px-6 py-2 rounded-full text-white hover:neon-glow transition-all duration-300 hover:scale-105 magnetic">
+                        Contact
+                    </a>
+                </div>
+                <button id="mobile-menu-button"
+                    class="md:hidden text-white hover:text-neon-blue transition-colors duration-300">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </nav>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 glass rounded-lg p-4">
+                <a href="#about"
+                    class="block py-2 text-gray-300 hover:text-neon-blue transition-colors duration-300">About</a>
+                <a href="#skills"
+                    class="block py-2 text-gray-300 hover:text-neon-purple transition-colors duration-300">Skills</a>
+                <a href="#projects"
+                    class="block py-2 text-gray-300 hover:text-neon-pink transition-colors duration-300">Projects</a>
+                <a href="#experience"
+                    class="block py-2 text-gray-300 hover:text-neon-cyan transition-colors duration-300">Experience</a>
+                <a href="#contact"
+                    class="block py-2 text-gray-300 hover:text-white transition-colors duration-300">Contact</a>
+            </div>
         </div>
-    </body>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center pt-24 pb-16 relative overflow-hidden">
+            <div class="container mx-auto px-4 sm:px-6 z-10">
+                <div class="text-center">
+                    <div class="inline-block glass px-4 py-2 rounded-full mb-6 pulse-glow">
+                        <span class="font-mono text-sm text-neon-blue">initiate --sequence main</span>
+                    </div>
+
+                    <h1 class="font-display text-4xl sm:text-5xl lg:text-7xl font-black mb-6 leading-tight">
+                        <span class="gradient-text p-5 mb-2">Sangharsha Dahal</span><br />
+                        <span class="neon-text typing-animation p-5">Full-Stack Developer</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                        Electronics & Communication Engineer specializing in
+                        <span class="text-neon-blue font-semibold">Laravel & Vue.js</span>. Passionate about integrating
+                        <span class="text-neon-purple font-semibold">AI & Blockchain</span>
+                        technologies into robust web solutions.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                        <a href="#projects"
+                            class="glass px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:neon-glow transition-all duration-300 hover:scale-105 magnetic group">
+                            <span class="gradient-text">Explore My Work</span>
+                            <i data-lucide="arrow-right"
+                                class="w-5 h-5 inline-block ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                        </a>
+                        <a href="#contact"
+                            class="glass-dark px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold border border-neon-blue/30 hover:border-neon-blue transition-all duration-300 hover:scale-105 magnetic">
+                            Let's Connect
+                        </a>
+                    </div>
+
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/sanghaarsha" target="_blank"
+                            class="text-gray-400 hover:text-neon-blue transition-all duration-300 hover:scale-125 magnetic">
+                            <i data-lucide="github" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/sangharsha-dahal" target="_blank"
+                            class="text-gray-400 hover:text-neon-purple transition-all duration-300 hover:scale-125 magnetic">
+                            <i data-lucide="linkedin" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+                        </a>
+                        <a href="https://sangharshadahal.com.np" target="_blank"
+                            class="text-gray-400 hover:text-neon-pink transition-all duration-300 hover:scale-125 magnetic">
+                            <i data-lucide="globe" class="w-7 h-7 sm:w-8 sm:h-8"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 relative">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">My Mission</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400">
+                        Bridging engineering principles with digital
+                        innovation
+                    </p>
+                </div>
+
+                <div class="fade-in-up">
+                    <div class="space-y-6 text-base sm:text-lg text-gray-300 max-w-4xl mx-auto text-center">
+                        <p class="text-lg sm:text-xl leading-relaxed">
+                            As an
+                            <span class="text-neon-blue font-semibold">Electronics and Communication
+                                Engineer</span>, I've built a strong foundation in logical
+                            systems and complex problem-solving. My passion
+                            lies in applying this engineering mindset to the
+                            digital world, crafting web solutions that are
+                            not just functional, but also robust and
+                            intelligent.
+                        </p>
+
+                        <p class="leading-relaxed">
+                            My explorations into
+                            <span class="text-neon-purple font-semibold">AI</span>
+                            and
+                            <span class="text-neon-cyan font-semibold">Blockchain</span>
+                            through intensive fellowships ignited my drive
+                            to build next-generation applications. These
+                            experiences provided me with the tools to
+                            integrate machine learning and decentralized
+                            principles into my work.
+                        </p>
+
+                        <p class="leading-relaxed">
+                            Currently, I'm channeling this energy at
+                            <span class="gradient-text font-semibold">Ambition Guru</span>, where I specialize in the
+                            <span class="text-neon-pink font-semibold">Laravel, Vue.js, and Nuxt.js</span>
+                            ecosystem. After a rewarding internship, I've
+                            advanced to a trainee developer role, where I'm
+                            focused on building scalable, high-performance
+                            web applications and contributing to a dynamic
+                            team environment.
+                        </p>
+
+                        <div
+                            class="glass rounded-lg p-6 mt-8 font-mono text-gray-300 text-sm sm:text-base inline-block">
+                            <p class="text-neon-blue mb-2 text-left">
+                                function lifeMission() {
+                            </p>
+                            <p class="ml-4 text-left">
+                                const purpose = 'build_and_innovate';
+                            </p>
+                            <p class="ml-4 text-left">
+                                const method = 'continuous_learning';
+                            </p>
+                            <p class="ml-4 text-neon-pink text-left">
+                                return `${purpose} with ${method}`;
+                            </p>
+                            <p class="text-neon-blue text-left">}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 relative bg-black/20">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">Technical Arsenal</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400">
+                        The tools and technologies I command
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8 fade-in-up">
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+                                class="w-10 h-10" alt="Laravel" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-neon-pink transition-colors duration-300">
+                            Laravel
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+                                class="w-10 h-10" alt="Vue.js" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-neon-cyan transition-colors duration-300">
+                            Vue.js
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nuxtjs/nuxtjs-original.svg"
+                                class="w-10 h-10" alt="Nuxt.js" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-green-400 transition-colors duration-300">
+                            Nuxt.js
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                                class="w-10 h-10" alt="Tailwind CSS" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                            TailwindCSS
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/quasar/quasar-original.svg"
+                                class="w-10 h-10" alt="Quasar" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-neon-blue transition-colors duration-300">
+                            Quasar
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                                class="w-10 h-10" alt="JavaScript" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">
+                            JavaScript
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                                class="w-10 h-10" alt="TypeScript" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                            TypeScript
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+                                class="w-10 h-10" alt="Python" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-yellow-400 transition-colors duration-300">
+                            Python
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+                                class="w-10 h-10" alt="PostgreSQL" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-blue-400 transition-colors duration-300">
+                            PostgreSQL
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg"
+                                class="w-10 h-10" alt="MongoDB" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-green-400 transition-colors duration-300">
+                            MongoDB
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg"
+                                class="w-10 h-10" alt="PyTorch" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-orange-400 transition-colors duration-300">
+                            PyTorch
+                        </h3>
+                    </div>
+                    <div class="glass rounded-2xl p-6 text-center hover-lift card-3d group">
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 p-2 rounded-full group-hover:scale-110 transition-all duration-300 flex items-center justify-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg"
+                                class="w-10 h-10" alt="Docker" />
+                        </div>
+                        <h3
+                            class="font-display text-lg font-semibold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                            Docker
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 relative">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">Featured Creations</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400">
+                        Where innovation meets execution
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 fade-in-up">
+                    <!-- Project 1 -->
+                    <div class="glass rounded-2xl overflow-hidden hover-lift group flex flex-col">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-display text-xl sm:text-2xl font-bold mb-3 gradient-text">
+                                Local Job Listing Platform
+                            </h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed flex-grow">
+                                A full-stack job listing site where users
+                                can list, browse, and apply for jobs.
+                                Features secure authentication, applicant
+                                tracking, file uploads.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-red-400 border border-red-300">Blade</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-neon-purple border border-white">PHP</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-neon-pink border border-neon-pink/30">Laravel</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-neon-cyan border border-neon-cyan/30">MySQL</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/sanghaarsha/jobify-laravel" target="_blank"
+                                    class="text-neon-purple hover:text-white transition-colors duration-300 flex items-center group/link">
+                                    <i data-lucide="github"
+                                        class="w-4 h-4 mr-2 group-hover/link:scale-110 transition-transform duration-300"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="glass rounded-2xl overflow-hidden hover-lift group flex flex-col">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-display text-xl sm:text-2xl font-bold mb-3" style="
+                                        background: var(--secondary-gradient);
+                                        -webkit-background-clip: text;
+                                        -moz-background-clip: text;
+                                        background-clip: text;
+                                        -webkit-text-fill-color: transparent;
+                                    ">
+                                Image Super-Resolution Analysis
+                            </h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed flex-grow">
+                                My major undergraduate project. Compared the
+                                performance of Bicubic, SRGAN, and SRResNet
+                                models, evaluating image quality with PSNR
+                                and SSIM metrics.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-neon-pink border border-neon-pink/30">Python</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-red-400 border border-red-400/30">PyTorch</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-purple-400 border border-purple-400/30">Pandas</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-pink-400 border border-pink-400/30">Scikit-learn</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/sanghaarsha/SISR" target="_blank"
+                                    class="text-red-400 hover:text-white transition-colors duration-300 flex items-center group/link">
+                                    <i data-lucide="github"
+                                        class="w-4 h-4 mr-2 group-hover/link:scale-110 transition-transform duration-300"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="glass rounded-2xl overflow-hidden hover-lift group flex flex-col">
+                        <div class="p-6 flex-grow flex flex-col">
+                            <h3 class="font-display text-xl sm:text-2xl font-bold mb-3" style="
+                                        background: var(--accent-gradient);
+                                        -webkit-background-clip: text;
+                                        -moz-background-clip: text;
+                                        background-clip: text;
+                                        -webkit-text-fill-color: transparent;
+                                    ">
+                                Chat App
+                            </h3>
+                            <p class="text-gray-300 mb-4 leading-relaxed flex-grow">
+                                A full-stack real-time messaging platform
+                                where users can join chat room and exchange
+                                messages instantly. Built with Laravel,
+                                Vue.js, and Pusher Channels.Features Secure
+                                chat and smooth, responsive UI for an
+                                engaging chat experience.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-red-400 border border-red-400/30">Laravel</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-green-400 border border-green-400/30">Vue</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-yellow-400 border border-yellow-400/30">Pusher</span>
+                                <span
+                                    class="glass-dark px-3 py-1 rounded-full text-sm text-blue-400 border border-blue-text-blue-400">WebSockets</span>
+                            </div>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/sanghaarsha/pusher-laravel-vue" target="_blank"
+                                    class="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center group/link">
+                                    <i data-lucide="github"
+                                        class="w-4 h-4 mr-2 group-hover/link:scale-110 transition-transform duration-300"></i>
+                                    Source Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 relative">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-20 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">Career Trajectory</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400">
+                        My professional path and milestones
+                    </p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative border-l-2 border-neon-blue/30 fade-in-up">
+                        <!-- Experience Item 1 -->
+                        <div class="mb-12 ml-6 sm:ml-8">
+                            <span
+                                class="absolute flex items-center justify-center w-6 h-6 bg-gray-800 rounded-full -left-3 ring-4 ring-gray-800 border-2 border-neon-blue">
+                                <i data-lucide="briefcase" class="w-3 h-3 text-neon-blue"></i>
+                            </span>
+                            <div class="glass p-6 rounded-lg hover-lift">
+                                <h3
+                                    class="flex flex-col sm:flex-row sm:items-center mb-1 text-xl font-semibold text-white">
+                                    Full-Stack Developer Trainee
+                                    <span
+                                        class="glass-dark text-neon-blue text-xs sm:text-sm font-medium mr-2 px-2.5 py-0.5 rounded mt-2 sm:mt-0 sm:ml-3">Current</span>
+                                </h3>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500">Ambition Guru |
+                                    Jan 2024 -
+                                    Present</time>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
+                                    <li>
+                                        Developing and maintaining robust
+                                        web applications using Laravel,
+                                        Vue.js, and Nuxt.js.
+                                    </li>
+                                    <li>
+                                        Building responsive and dynamic UIs
+                                        with Quasar Framework and
+                                        TailwindCSS.
+                                    </li>
+                                    <li>
+                                        Promoted from Intern to Trainee
+                                        after five months of demonstrated
+                                        performance and rapid skill
+                                        acquisition.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Experience Item 2 -->
+                        <div class="ml-6 sm:ml-8">
+                            <span
+                                class="absolute flex items-center justify-center w-6 h-6 bg-gray-800 rounded-full -left-3 ring-4 ring-gray-800 border-2 border-neon-purple">
+                                <i data-lucide="graduation-cap" class="w-3 h-3 text-neon-purple"></i>
+                            </span>
+                            <div class="glass p-6 rounded-lg hover-lift">
+                                <h3 class="text-xl font-semibold text-white">
+                                    B.E. in Electronics, Communication &
+                                    Info
+                                </h3>
+                                <time class="block mb-3 text-sm font-normal leading-none text-gray-500">IOE, Purwanchal
+                                    Campus | 2019 -
+                                    2024</time>
+                                <ul class="list-disc list-inside text-gray-300 space-y-2 text-base">
+                                    <li>
+                                        Specialized coursework in OOP, DBMS,
+                                        Data Structures, AI, and Web
+                                        Technology.
+                                    </li>
+                                    <li>
+                                        Completed a comprehensive major
+                                        project on Image Super-Resolution
+                                        techniques using PyTorch.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fellowships Section -->
+        <section id="fellowships" class="py-24 relative bg-black/20">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">Specialized Training</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400">
+                        Deep dives into transformative technologies
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 fade-in-up">
+                    <div class="glass rounded-2xl p-8 md:p-12 text-center hover-lift">
+                        <i data-lucide="brain-circuit" class="w-16 h-16 mx-auto text-neon-purple mb-4"></i>
+                        <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-neon-purple">
+                            AI Fellowship
+                        </h3>
+                        <p class="font-mono text-sm text-gray-400 mb-4">
+                            Fuse Machines | Jan 2023 - May 2023
+                        </p>
+                        <p class="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+                            An intensive program focused on Machine Learning
+                            fundamentals, from mathematical essentials to
+                            model deployment. Applied classification
+                            algorithms to real-world datasets and mastered
+                            the ML pipeline.
+                        </p>
+                    </div>
+                    <div class="glass rounded-2xl p-8 md:p-12 text-center hover-lift">
+                        <i data-lucide="cuboid" class="w-16 h-16 mx-auto text-neon-cyan mb-4"></i>
+                        <h3 class="font-display text-2xl sm:text-3xl font-bold mb-4 text-neon-cyan">
+                            Blockchain Fellowship
+                        </h3>
+                        <p class="font-mono text-sm text-gray-400 mb-4">
+                            eSatya | Oct 2021 - Mar 2022
+                        </p>
+                        <p class="text-base sm:text-lg text-gray-300 max-w-3xl mx-auto">
+                            A hands-on fellowship focused on decentralized
+                            technology. Gained practical experience in smart
+                            contract development with Solidity and building
+                            secure, peer-to-peer dApps on Ethereum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 relative bg-black/20">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center mb-16 fade-in-up">
+                    <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                        <span class="gradient-text">Initiate Contact</span>
+                    </h2>
+                    <p class="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto">
+                        Open to new collaborations and exciting
+                        opportunities. Let's build together.
+                    </p>
+                </div>
+                <div class="max-w-4xl mx-auto glass rounded-2xl p-6 sm:p-8 md:p-12 fade-in-up hover-lift">
+                    <form action="https://formspree.io/f/xvgrqwvj" method="POST">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 text-sm font-medium text-gray-300">Your Name</label>
+                                <input type="text" id="name" name="name"
+                                    class="glass-dark border-transparent focus:border-neon-blue text-white text-sm rounded-lg focus:ring-neon-blue block w-full p-3 transition-all duration-300"
+                                    placeholder="Your Name" required />
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-300">Your
+                                    Email</label>
+                                <input type="email" id="email" name="email"
+                                    class="glass-dark border-transparent focus:border-neon-purple text-white text-sm rounded-lg focus:ring-neon-purple block w-full p-3 transition-all duration-300"
+                                    placeholder="you@example.com" required />
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="subject"
+                                    class="block mb-2 text-sm font-medium text-gray-300">Subject</label>
+                                <input type="text" id="subject" name="subject"
+                                    class="glass-dark border-transparent focus:border-neon-pink text-white text-sm rounded-lg focus:ring-neon-pink block w-full p-3 transition-all duration-300"
+                                    placeholder="Let's talk about..." required />
+                            </div>
+                            <div class="md:col-span-2">
+                                <label for="message" class="block mb-2 text-sm font-medium text-gray-300">Your
+                                    Message</label>
+                                <textarea id="message" name="message" rows="6"
+                                    class="glass-dark border-transparent focus:border-neon-cyan text-white text-sm rounded-lg focus:ring-neon-cyan block w-full p-3 transition-all duration-300"
+                                    placeholder="Your message here..."></textarea>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="mt-8 w-full sm:w-auto glass px-8 py-3 rounded-full text-lg font-semibold hover:neon-glow transition-all duration-300 hover:scale-105 magnetic">
+                            <span class="gradient-text">Send Transmission</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-black/30 text-white border-t border-white/10">
+        <div class="container mx-auto px-4 sm:px-6 py-8 text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://github.com/sanghaarsha" target="_blank"
+                    class="text-gray-400 hover:text-neon-blue transition-all duration-300 hover:scale-125 magnetic"><i
+                        data-lucide="github" class="w-6 h-6"></i></a>
+                <a href="https://linkedin.com/in/sangharsha-dahal" target="_blank"
+                    class="text-gray-400 hover:text-neon-purple transition-all duration-300 hover:scale-125 magnetic"><i
+                        data-lucide="linkedin" class="w-6 h-6"></i></a>
+                <a href="mailto:contact@sangharshadahal.com.np" target="_blank"
+                    class="text-gray-400 hover:text-neon-pink transition-all duration-300 hover:scale-125 magnetic"><i
+                        data-lucide="mail" class="w-6 h-6"></i></a>
+            </div>
+            <p class="text-gray-500 font-mono text-sm">
+                &copy; <span id="year"></span> Sangharsha Dahal. All systems
+                operational.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton =
+            document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll("#mobile-menu a").forEach((link) => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.add("hidden");
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Particle generation
+        const particlesContainer = document.getElementById("particles");
+        if (particlesContainer) {
+            const particleCount = 25;
+            for (let i = 0; i < particleCount; i++) {
+                let particle = document.createElement("div");
+                particle.classList.add("particle");
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.animationDuration = `${Math.random() * 5 + 5
+                    }s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("animate");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        document.querySelectorAll(".fade-in-up").forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Header scroll effect
+        const header = document.getElementById("header");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 50) {
+                header.classList.add("glass-dark");
+                header.classList.remove("glass");
+            } else {
+                header.classList.remove("glass-dark");
+                header.classList.add("glass");
+            }
+        });
+
+        // Magnetic hover effect
+        document.querySelectorAll(".magnetic").forEach((el) => {
+            el.addEventListener("mousemove", (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                const distance = Math.sqrt(x * x + y * y);
+                if (el.classList.contains("group")) {
+                    el.style.transform = `translate(${x * 0.1}px, ${y * 0.1
+                        }px)`;
+                } else {
+                    el.style.transform = `translate(${x * 0.2}px, ${y * 0.2
+                        }px) scale(1.1)`;
+                }
+            });
+            el.addEventListener("mouseleave", () => {
+                el.style.transform = "translate(0, 0) scale(1)";
+            });
+        });
+
+        // Restart typing animation on visibility change
+        const typingElement = document.querySelector(".typing-animation");
+        const typingObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    typingElement.style.animation = "none";
+                    typingElement.offsetHeight; /* trigger reflow */
+                    typingElement.style.animation = "";
+                }
+            });
+        });
+        if (typingElement) {
+            typingObserver.observe(typingElement);
+            // Also restart if user switches tabs back and forth
+            document.addEventListener("visibilitychange", () => {
+                if (!document.hidden && typingElement) {
+                    typingElement.style.animation = "none";
+                    typingElement.offsetHeight; /* trigger reflow */
+                    typingElement.style.animation = "";
+                }
+            });
+        }
+    </script>
+</body>
+
 </html>
