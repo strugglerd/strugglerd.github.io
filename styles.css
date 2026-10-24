@@ -2,7 +2,7 @@
   --bg: #ffffff;
   --text: #09090b;
   --text-muted: #52525b;
-  --text-faint: #a1a1aa;
+  --text-faint: #71717a;
   --border: #e4e4e7;
   --border-focus: #71717a;
   --input-bg: #fafafa;
@@ -17,7 +17,7 @@
   --bg: #09090b;
   --text: #f4f4f5;
   --text-muted: #a1a1aa;
-  --text-faint: #71717a;
+  --text-faint: #a1a1aa;
   --border: #27272a;
   --border-focus: #52525b;
   --input-bg: #111113;
@@ -108,12 +108,42 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 
 .theme-btn:hover {
   color: var(--text);
   border-color: var(--border-focus);
+}
+
+/* Theme icon toggling without JS layout flash */
+:root:not([data-theme="dark"]) #theme-icon-sun {
+  display: none;
+}
+
+:root:not([data-theme="dark"]) #theme-icon-moon {
+  display: block;
+}
+
+[data-theme="dark"] #theme-icon-sun {
+  display: block;
+}
+
+[data-theme="dark"] #theme-icon-moon {
+  display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Links Row */
