@@ -60,6 +60,14 @@ if (scrollIndicator) {
   }, { passive: true });
 }
 
+// Email verification integration
+const emailInput = document.getElementById('email-input');
+const emailHint = document.getElementById('email-hint');
+
+if (window.EmailValidator && emailInput) {
+  window.EmailValidator.setup(emailInput, emailHint);
+}
+
 // Async contact form submission
 const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
@@ -67,6 +75,27 @@ const formStatus = document.getElementById('form-status');
 if (form) {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // 1. Silent honeypot drop (if filled by bot, fake success without sending)
+    const gotcha = form.elements['_gotcha'];
+    if (gotcha && gotcha.value) {
+      form.reset();
+      if (formStatus) {
+        formStatus.textContent = 'Message sent.';
+        formStatus.classList.add('success');
+      }
+      return;
+    }
+
+    // 2. Verify email trustworthiness
+    if (window.EmailValidator) {
+      const isEmailOk = await window.EmailValidator.validate(emailInput, emailHint, true);
+      if (!isEmailOk) {
+        if (emailInput) emailInput.focus();
+        return;
+      }
+    }
+
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn ? submitBtn.textContent : 'Send message';
 
@@ -89,6 +118,13 @@ if (form) {
 
       if (response.ok) {
         form.reset();
+        if (emailHint) {
+          emailHint.textContent = '';
+          emailHint.className = 'field-hint';
+        }
+        if (emailInput) {
+          emailInput.classList.remove('is-invalid');
+        }
         if (formStatus) {
           formStatus.textContent = 'Message sent.';
           formStatus.classList.add('success');

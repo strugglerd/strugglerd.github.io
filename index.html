@@ -278,11 +278,19 @@
       </p>
 
       <form id="contact-form" action="https://formspree.io/f/xvgrqwvj" method="POST" class="contact-form">
+        <!-- Formspree Honeypot for spam bots -->
+        <input type="text" name="_gotcha" style="display:none !important;" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
         <div class="form-row">
-          <input type="text" name="name" placeholder="Name" autocomplete="name" aria-label="Your Name" required
-            class="input-field" />
-          <input type="email" name="email" placeholder="Email" autocomplete="email" aria-label="Your Email" required
-            class="input-field" />
+          <div class="field-group">
+            <input type="text" name="name" placeholder="Name" autocomplete="name" aria-label="Your Name" required
+              class="input-field" />
+          </div>
+          <div class="field-group">
+            <input type="email" id="email-input" name="email" placeholder="Email" autocomplete="email" aria-label="Your Email" required
+              class="input-field" />
+            <div id="email-hint" class="field-hint" role="alert" aria-live="polite"></div>
+          </div>
         </div>
         <input type="text" name="subject" placeholder="Subject" aria-label="Subject" required class="input-field" />
         <textarea name="message" placeholder="Message" rows="4" aria-label="Your Message" required
@@ -306,6 +314,7 @@
 
   </main>
 
+  <script src="./email-validator.js" defer></script>
   <script src="./script.js" defer></script>
 </body>
 
