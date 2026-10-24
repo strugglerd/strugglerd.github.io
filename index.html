@@ -98,7 +98,7 @@
       --btn-text: #ffffff;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-      --max-w: 620px;
+      --max-w: 680px;
     }
 
     [data-theme="dark"] {
@@ -138,8 +138,8 @@
       font-family: var(--font-sans);
       background-color: var(--bg);
       color: var(--text);
-      line-height: 1.6;
-      font-size: 0.95rem;
+      line-height: 1.65;
+      font-size: 1rem;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
       transition: background-color 0.15s ease, color 0.15s ease;
@@ -161,7 +161,7 @@
     .container {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 4.5rem 1.25rem 5rem;
+      padding: 5rem 1.5rem 6rem;
     }
 
     /* Header */
@@ -173,17 +173,17 @@
     }
 
     .name {
-      font-size: 1.35rem;
+      font-size: 1.75rem;
       font-weight: 600;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.03em;
       line-height: 1.2;
       color: var(--text);
     }
 
     .subtitle {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
     }
 
     .theme-btn {
@@ -191,7 +191,7 @@
       border: 1px solid var(--border);
       color: var(--text-muted);
       border-radius: 6px;
-      padding: 6px 8px;
+      padding: 7px 9px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -209,10 +209,10 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 0.88rem;
+      gap: 0.75rem;
+      font-size: 0.95rem;
       font-family: var(--font-mono);
-      margin-bottom: 3rem;
+      margin-bottom: 3.25rem;
     }
 
     .links-row a {
@@ -233,23 +233,24 @@
 
     /* Content sections */
     section {
-      margin-bottom: 3.25rem;
+      margin-bottom: 3.5rem;
     }
 
     .section-label {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--text-faint);
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.35rem;
     }
 
     /* About */
     .bio p {
       color: var(--text-muted);
-      margin-bottom: 0.9rem;
+      margin-bottom: 1rem;
       line-height: 1.7;
+      font-size: 1rem;
     }
 
     .bio p:last-child {
@@ -265,13 +266,13 @@
     .entries {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.75rem;
     }
 
     .entry {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
+      gap: 0.25rem;
     }
 
     .entry-header {
@@ -282,32 +283,32 @@
     }
 
     .entry-title {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--text);
     }
 
     .entry-date {
       font-family: var(--font-mono);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--text-faint);
       white-space: nowrap;
     }
 
     .entry-sub {
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       color: var(--text-muted);
     }
 
     .entry-desc {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.6;
-      margin-top: 0.15rem;
+      line-height: 1.65;
+      margin-top: 0.2rem;
     }
 
     .entry-desc + .entry-desc {
-      margin-top: 0.45rem;
+      margin-top: 0.5rem;
     }
 
     .entry-desc strong {
@@ -319,7 +320,7 @@
     .project-entry {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 0.3rem;
     }
 
     .project-header {
@@ -331,7 +332,7 @@
     }
 
     .project-link {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--text);
       text-decoration: none;
@@ -346,7 +347,7 @@
     }
 
     .arrow {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       display: inline-block;
       transition: transform 0.15s ease;
       color: var(--text-faint);
@@ -359,62 +360,62 @@
 
     .project-stack {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--text-faint);
     }
 
     .project-desc {
-      font-size: 0.88rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.55;
+      line-height: 1.6;
     }
 
     /* Skills */
     .skills-block {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      font-size: 0.9rem;
+      gap: 0.75rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
     }
 
     .skills-block p {
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .skill-cat {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: var(--text);
       display: inline-block;
-      min-width: 110px;
+      min-width: 120px;
     }
 
     /* Contact */
     .contact p {
       color: var(--text-muted);
       margin-bottom: 1.25rem;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       line-height: 1.6;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .input-field {
       width: 100%;
-      padding: 0.65rem 0.8rem;
+      padding: 0.7rem 0.85rem;
       font-family: var(--font-sans);
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       border: 1px solid var(--border);
       border-radius: 6px;
       background: var(--input-bg);
@@ -429,17 +430,17 @@
 
     textarea.input-field {
       resize: vertical;
-      min-height: 100px;
+      min-height: 110px;
     }
 
     .submit-btn {
       align-self: flex-start;
-      padding: 0.55rem 1.15rem;
+      padding: 0.65rem 1.25rem;
       background: var(--btn-bg);
       color: var(--btn-text);
       border: none;
       border-radius: 6px;
-      font-size: 0.88rem;
+      font-size: 0.92rem;
       font-weight: 500;
       cursor: pointer;
       transition: opacity 0.15s ease;
@@ -456,7 +457,7 @@
 
     .form-status {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       margin-top: 0.25rem;
     }
 
@@ -473,18 +474,17 @@
       border-top: 1px solid var(--border);
       padding-top: 2rem;
       color: var(--text-faint);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-family: var(--font-mono);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
     }
 
     @media (max-width: 520px) {
       .container {
         padding: 3.5rem 1.15rem 4rem;
+      }
+
+      .name {
+        font-size: 1.55rem;
       }
 
       .form-row {
@@ -510,13 +510,13 @@
       </div>
 
       <button id="theme-btn" class="theme-btn" aria-label="Toggle theme">
-        <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 24 24" width="15" height="15" fill="none"
+        <svg id="theme-icon-sun" style="display:none;" viewBox="0 0 24 24" width="16" height="16" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="4" />
           <path
             d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
         </svg>
-        <svg id="theme-icon-moon" style="display:none;" viewBox="0 0 24 24" width="15" height="15" fill="none"
+        <svg id="theme-icon-moon" style="display:none;" viewBox="0 0 24 24" width="16" height="16" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" />
         </svg>
