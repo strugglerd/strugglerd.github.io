@@ -14,6 +14,13 @@ function updateThemeUI(theme) {
   }
 }
 
+// Meta theme-color synchronization
+const metaThemeColors = document.querySelectorAll('meta[name="theme-color"]');
+function updateMetaThemeColor(theme) {
+  const color = theme === 'dark' ? '#09090b' : '#ffffff';
+  metaThemeColors.forEach((meta) => meta.setAttribute('content', color));
+}
+
 const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
 updateThemeUI(currentTheme);
 
@@ -24,18 +31,26 @@ if (themeBtn) {
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
     updateThemeUI(next);
+    updateMetaThemeColor(next);
   });
 }
 
 // Dynamic OS theme change listener
 if (window.matchMedia) {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const handleOSChange = (e) => {
     if (!localStorage.getItem('theme')) {
       const next = e.matches ? 'dark' : 'light';
       document.documentElement.setAttribute('data-theme', next);
       updateThemeUI(next);
+      updateMetaThemeColor(next);
     }
-  });
+  };
+  if (mql.addEventListener) {
+    mql.addEventListener('change', handleOSChange);
+  } else if (mql.addListener) {
+    mql.addListener(handleOSChange);
+  }
 }
 
 // Year auto-update
@@ -47,17 +62,22 @@ if (yearEl) {
 // Scroll below indicator
 const scrollIndicator = document.getElementById('scroll-indicator');
 if (scrollIndicator) {
-  scrollIndicator.addEventListener('click', () => {
-    window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
-  });
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 120) {
+  const checkScroll = () => {
+    const hasScroll = document.documentElement.scrollHeight > window.innerHeight + 80;
+    if (!hasScroll || window.scrollY > 120) {
       scrollIndicator.classList.add('is-hidden');
     } else {
       scrollIndicator.classList.remove('is-hidden');
     }
-  }, { passive: true });
+  };
+
+  scrollIndicator.addEventListener('click', () => {
+    window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' });
+  });
+
+  window.addEventListener('scroll', checkScroll, { passive: true });
+  window.addEventListener('resize', checkScroll, { passive: true });
+  checkScroll();
 }
 
 // Email verification integration
@@ -73,6 +93,14 @@ const form = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
 
 if (form) {
+  // Clear any previous status message when user resumes typing
+  form.addEventListener('input', () => {
+    if (formStatus && formStatus.textContent) {
+      formStatus.textContent = '';
+      formStatus.className = 'form-status';
+    }
+  });
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
