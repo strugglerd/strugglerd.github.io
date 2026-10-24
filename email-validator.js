@@ -37,6 +37,9 @@
     'protonmail.com'
   ];
 
+  // Legitimate domains that are within 1 edit of popular ones (e.g. mail.com, email.com vs gmail.com)
+  const legitimateExceptions = new Set(['mail.com', 'email.com', 'me.com']);
+
   // Damerau-Levenshtein distance (handles insertions, deletions, substitutions, and transpositions)
   function damerauLevenshtein(a, b) {
     const al = a.length, bl = b.length;
@@ -64,6 +67,8 @@
   }
 
   function findSimilarDomain(domain) {
+    if (legitimateExceptions.has(domain)) return null;
+
     let closest = null;
     let minDistance = Infinity;
 
@@ -90,23 +95,35 @@
       return !showAlert;
     }
 
-    const parts = value.split('@');
-    if (parts.length === 2 && parts[1]) {
-      const domain = parts[1].toLowerCase();
+    const lastAt = value.lastIndexOf('@');
+    if (lastAt > 0 && lastAt < value.length - 1) {
+      const localPart = value.slice(0, lastAt);
+      const domain = value.slice(lastAt + 1).toLowerCase();
 
       // 1. Check for typos using string similarity
       const suggestion = findSimilarDomain(domain);
       if (suggestion) {
-        emailHint.innerHTML = `Did you mean <button type="button" class="suggestion-link">@${suggestion}</button>?`;
-        emailHint.className = 'field-hint info';
-        emailInput.classList.remove('is-invalid');
+        const prefix = showAlert ? 'Please verify your email: did you mean ' : 'Did you mean ';
+        emailHint.innerHTML = `${prefix}<button type="button" class="suggestion-link">@${suggestion}</button>?`;
+        emailHint.className = showAlert ? 'field-hint error' : 'field-hint info';
+
+        if (showAlert) {
+          emailInput.classList.add('is-invalid');
+        } else {
+          emailInput.classList.remove('is-invalid');
+        }
 
         const btn = emailHint.querySelector('.suggestion-link');
         if (btn) {
           btn.addEventListener('click', () => {
-            emailInput.value = `${parts[0]}@${suggestion}`;
-            validate(emailInput, emailHint);
+            emailInput.value = `${localPart}@${suggestion}`;
+            validate(emailInput, emailHint, false);
           });
+        }
+
+        // On submit, halt so user can correct the obvious typo; on blur, just advise gently
+        if (showAlert) {
+          return false;
         }
         return true;
       }
