@@ -1,0 +1,4 @@
+Contact: mailto:contact@sangharshadahal.com.np
+Expires: 2027-10-24T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://sangharshadahal.com.np/.well-known/security.txt
