@@ -1,161 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- favicons -->
-        <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="./assets/apple-touch-icon.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./assets/favicon-32x32.png"
-        />
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href="./assets/favicon-16x16.png"
-        />
-        <link rel="manifest" href="./assets/site.webmanifest" />
 
-        <title>404 - Page Not Found</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Sangharsha Dahal</title>
 
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                    Roboto, sans-serif;
-                background-color: #f8fafc;
-                min-height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #1e293b;
-            }
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
+  <link rel="icon" href="./favicon/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="icon" href="./favicon/favicon.ico">
+  <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)">
 
-            .container {
-                text-align: center;
-                padding: 2rem;
-                max-width: 600px;
-            }
+  <!-- Early Theme Init -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
-            .error-code {
-                font-size: 8rem;
-                font-weight: 700;
-                color: #0066cc;
-                margin-bottom: 1rem;
-                position: relative;
-                animation: float 6s ease-in-out infinite;
-            }
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #09090b;
+      --text-muted: #52525b;
+      --text-faint: #a1a1aa;
+      --border: #e4e4e7;
+      --border-focus: #71717a;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
 
-            @keyframes float {
-                0%,
-                100% {
-                    transform: translateY(0);
-                }
-                50% {
-                    transform: translateY(-20px);
-                }
-            }
+    [data-theme="dark"] {
+      --bg: #09090b;
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-faint: #71717a;
+      --border: #27272a;
+      --border-focus: #52525b;
+    }
 
-            .message {
-                font-size: 1.5rem;
-                margin-bottom: 2rem;
-                color: #475569;
-            }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-            .description {
-                font-size: 1.1rem;
-                line-height: 1.6;
-                margin-bottom: 2rem;
-                color: #64748b;
-            }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+      text-align: center;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-            .home-button {
-                display: inline-block;
-                padding: 0.8rem 2rem;
-                background-color: #0066cc;
-                color: white;
-                text-decoration: none;
-                border-radius: 8px;
-                font-weight: 500;
-                transition: all 0.3s ease;
-                position: relative;
-                overflow: hidden;
-            }
+    .code {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      color: var(--text-faint);
+      margin-bottom: 0.5rem;
+    }
 
-            .home-button:hover {
-                background-color: #0052a3;
-                transform: translateY(-2px);
-                box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
-            }
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
 
-            .home-button::after {
-                content: "";
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                width: 300%;
-                height: 300%;
-                background: rgba(255, 255, 255, 0.1);
-                transform: translate(-50%, -50%) rotate(45deg);
-                transition: transform 0.6s ease;
-            }
+    p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      max-width: 360px;
+    }
 
-            .home-button:hover::after {
-                transform: translate(-50%, -50%) rotate(45deg) translateX(100%);
-            }
+    a {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
 
-            @media (max-width: 640px) {
-                .error-code {
-                    font-size: 6rem;
-                }
+    a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
+</head>
 
-                .message {
-                    font-size: 1.25rem;
-                }
+<body>
+  <div class="code">404</div>
+  <h1>Page not found</h1>
+  <p>The page you are looking for does not exist or has been moved.</p>
+  <a href="/">← home</a>
+</body>
 
-                .description {
-                    font-size: 1rem;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="error-code">404</div>
-            <h1 class="message">Page Not Found</h1>
-            <p class="description">
-                Oops! It seems like you've ventured into uncharted territory.
-                The page you're looking for might have moved or no longer
-                exists.
-            </p>
-            <a href="/" class="home-button" id="homeBtn">Return Home</a>
-        </div>
-
-        <script>
-            // Add subtle parallax effect to 404 number
-            document.addEventListener("mousemove", (e) => {
-                const errorCode = document.querySelector(".error-code");
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
-                errorCode.style.transform = `translate(${xAxis}px, ${yAxis}px)`;
-            });
-
-            // Reset transform when mouse leaves the window
-            document.addEventListener("mouseleave", () => {
-                const errorCode = document.querySelector(".error-code");
-                errorCode.style.transform = "translate(0, 0)";
-            });
-        </script>
-    </body>
 </html>
