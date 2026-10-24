@@ -55,6 +55,16 @@
       padding: 0;
     }
 
+    ::selection {
+      background: var(--border-focus);
+      color: var(--text);
+    }
+
+    :focus-visible {
+      outline: 1px solid var(--border-focus);
+      outline-offset: 2px;
+    }
+
     body {
       font-family: var(--font-sans);
       background-color: var(--bg);
