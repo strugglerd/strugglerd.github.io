@@ -146,6 +146,9 @@ if (form) {
 
       if (response.ok) {
         form.reset();
+        if (window.turnstile) {
+          window.turnstile.reset();
+        }
         if (emailHint) {
           emailHint.textContent = '';
           emailHint.className = 'field-hint';
@@ -158,13 +161,19 @@ if (form) {
           formStatus.classList.add('success');
         }
       } else {
+        if (window.turnstile) {
+          window.turnstile.reset();
+        }
         const data = await response.json();
         if (formStatus) {
-          formStatus.textContent = data?.errors?.map(err => err.message).join(', ') || 'Failed to send. Please email me directly.';
+          formStatus.textContent = data?.errors?.map(err => err.message).join(', ') || data?.error || 'Failed to send. Please email me directly.';
           formStatus.classList.add('error');
         }
       }
     } catch (err) {
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
       if (formStatus) {
         formStatus.textContent = 'Network error. Please email me directly.';
         formStatus.classList.add('error');
